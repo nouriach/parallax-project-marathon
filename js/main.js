@@ -7,7 +7,9 @@ let player = {
 
 let roadLimits = {
   top: 1020,
-  bottom: 1160
+  bottom: 1150,
+  left: -10,
+  right: 2470
 };
 
 document.onkeydown = function(e) {
@@ -36,8 +38,14 @@ document.onkeydown = function(e) {
 };
 
 function movePlayerForward() {
-  document.getElementById("runner").style.left = player.left + "px";
-  console.log(player.top);
+  if (player.left < roadLimits.left) {
+    console.log(player.left);
+  } else if (player.left > roadLimits.right) {
+    console.log(player.left);
+  } else {
+    document.getElementById("runner").style.left = player.left + "px";
+    console.log("move");
+  }
 }
 
 function movePlayerUp() {
@@ -55,3 +63,10 @@ function movePlayerDown() {
     console.log("you can't move anymore");
   }
 }
+
+function update() {
+  updatePlayer();
+  window.requestAnimationFrame(update);
+}
+
+window.requestAnimationFrame(update);
