@@ -1,0 +1,115 @@
+/* #wrapper {
+  height: 1200px;
+  width: auto;
+} */
+
+#sky {
+  height: 100vh;
+  width: auto;
+  background-image: url("../img/sun.png"), url("../img/sky@4x.png");
+  background-position: -120% 70px, 0px 0px;
+
+  background-repeat: no-repeat, repeat;
+  animation: animate-background linear 150s infinite;
+  border: none;
+  display: flex;
+  flex-direction: column;
+}
+
+#skySpace {
+  height: 20vh;
+  width: auto;
+}
+
+#city {
+  height: 50vh;
+  width: auto;
+
+  display: flex;
+  flex-direction: column;
+
+  background-image: url("../img/buildings@4x.png");
+  background-position: -120px 0px;
+  background-repeat: repeat-x;
+  animation: animate-city linear 130s infinite;
+}
+
+#citySpace {
+  height: 70vh;
+  width: auto;
+}
+
+#runnerSpace {
+  height: 20vh;
+  width: auto;
+}
+
+#runner {
+  margin-left: 50%;
+  /* margin-top: 50%; */
+
+  padding: 0;
+  height: 5vh;
+  width: calc(336px / 8);
+  background-image: url("../img/manRunning.png");
+
+  transform: translate(-50%, -50%);
+  animation: animate-runner 1s steps(8) infinite;
+}
+
+#road {
+  height: 30vh;
+  width: auto;
+
+  background-image: url("../img/road@4x.png");
+  background-position: -120px 0px;
+  background-repeat: repeat-x;
+  animation: animate-city linear 40s infinite;
+}
+
+#bottomContainer {
+  height: 30vh;
+  width: auto;
+
+  background-image: url("../img/water@4x.png");
+  background-position: -120px 0px;
+  background-repeat: repeat-x;
+  animation: animate-river linear 45s infinite;
+}
+
+/* // the numbers below make it start and end on and off the screen*/
+@keyframes animate-background {
+  from {
+    background-position: 120% 70px, 0px 0px;
+  }
+  to {
+    background-position: -20% 70px, -1000px 0px;
+  }
+}
+
+@keyframes animate-city {
+  from {
+    background-position: 140% 100px;
+  }
+  to {
+    background-position: -20% 100px;
+  }
+}
+
+@keyframes animate-river {
+  from {
+    background-position: 140% -30px;
+  }
+  to {
+    background-position: -20% -30p;
+  }
+}
+
+@keyframes animate-runner {
+  from {
+    background-position: 2px;
+  }
+  to {
+    background-position: -336px;
+  }
+}
