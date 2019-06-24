@@ -1,7 +1,4 @@
-/* #wrapper {
-  height: 1200px;
-  width: auto;
-} */
+/* FIRST DIV  */
 
 #sky {
   display: flex;
@@ -16,6 +13,8 @@
   animation: animate-background linear 150s infinite;
 }
 
+/* SECOND DIV */
+
 #skySpace {
   height: 30vh;
   width: auto;
@@ -24,7 +23,7 @@
 }
 
 #city {
-  height: 50vh;
+  height: 60vh;
   width: auto;
 
   flex-grow: 3;
@@ -39,37 +38,29 @@
   animation: animate-city linear 130s infinite;
 }
 
+#bottomContainer {
+  height: 10vh;
+  width: auto;
+  flex-grow: 1;
+  flex-shrink: 1;
+
+  background-image: url("../img/waterUpdate.png");
+  background-position: -120px 0px;
+  background-repeat: repeat-x;
+  animation: animate-river linear 45s infinite;
+}
+
+/* CITY CONTAINER */
+
 #citySpace {
-  height: 70vh;
+  height: 50vh;
   width: auto;
 
   flex-grow: 1;
 }
 
-#runnerSpace {
-  height: 20vh;
-  width: auto;
-}
-
-#runner {
-  margin-left: 50%;
-  margin-left: 50%;
-
-  height: 5vh;
-  width: calc(336px / 8);
-
-  top: 800px;
-  /* left: 550px; */
-  position: absolute;
-
-  background-image: url("../img/manRunning.png");
-
-  transform: translate(-50%, -50%);
-  animation: animate-runner 1s steps(8) infinite;
-}
-
 #road {
-  height: 30vh;
+  height: 50vh;
   width: auto;
 
   flex-grow: 1;
@@ -80,17 +71,28 @@
   animation: animate-city linear 40s infinite;
 }
 
-#bottomContainer {
+/* ROAD DIV */
+
+#runnerSpace {
   height: 20vh;
   width: auto;
-  flex-grow: 1;
-  flex-shrink: 1;
-
-  background-image: url("../img/waterUpdate.png");
-  background-position: -120px 0px;
-  background-repeat: repeat-x;
-  animation: animate-river linear 45s infinite;
 }
+
+#runner {
+  margin-left: 5%;
+  /* margin-top: auto; */
+  position: absolute;
+
+  height: 5vh;
+  width: calc(336px / 8);
+
+  background-image: url("../img/manRunning.png");
+
+  transform: translate(-50%, -50%);
+  animation: animate-runner 1s steps(8) infinite;
+}
+
+/* ANIMATION */
 
 /* // the numbers below make it start and end on and off the screen*/
 @keyframes animate-background {

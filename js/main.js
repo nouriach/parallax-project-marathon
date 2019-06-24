@@ -1,84 +1,57 @@
+// This speaks to the starting position of the runner.
+
 let player = {
-  top: 50,
-  left: 50
+  top: 1090,
+  left: 0
+};
+
+let roadLimits = {
+  top: 1020,
+  bottom: 1160
 };
 
 document.onkeydown = function(e) {
   console.log(e.code);
   if (e.code === "ArrowUp") {
     console.log("UP");
-    player.top = player.top - 1;
+    player.top = player.top - 10;
+    console.log(player.top);
     movePlayerUp();
   } else if (e.code === "ArrowLeft") {
     console.log("LEFT");
-    player.left = player.left - 1;
+    player.left = player.left - 10;
     movePlayerForward();
   } else if (e.code === "ArrowRight") {
     console.log("RIGHT");
-    player.left = player.left + 1;
+    player.left = player.left + 10;
+    console.log(player.top);
     movePlayerForward();
   } else if (e.code === "ArrowDown") {
     console.log("DOWN");
-    player.top = player.top + 1;
-    movePlayerUp();
+    player.top = player.top + 10;
+    movePlayerDown();
   } else {
     console.log("no other moves available.");
   }
 };
 
 function movePlayerForward() {
-  document.getElementById("runner").style.left = player.left + "%";
+  document.getElementById("runner").style.left = player.left + "px";
+  console.log(player.top);
 }
 
 function movePlayerUp() {
-  document.getElementById("runner").style.top = player.top + "%";
-}
-
-/******* 
- 
-const gameWidth = 800;
-const gameHeight = 1000;
-
-const gameState = {
-  playerX: 0,
-  playerY: 0
-};
-
-function setPosition(el, x, y) {
-  el.style.transform = `translate ${x}px, ${y}px`;
-}
-
-function createPlayer(container) {
-  gameState.playerX = gameWidth / 2;
-  gameState.playerY = gameHeight - 50;
-  const player = document.getElementById(".runner");
-    player.src = "../img/manRunning.png";
-    player.className = "player";
-    container.appendChild(player);
-  setPosition(player, gameState.playerX, gameState.playerY);
-}
-
-function init() {
-  const container = document.querySelector(".road");
-  createPlayer(container);
-}
-
-function onKeyDown(e) {
-  console.log(e.code);
-  if (e.code === "ArrowUp") {
-    gameState.playerX -= 5;
-    const player = document.querySelector(".player");
-    setPosition(player, gameState.playerX, gameState.playerY);
+  if (player.top > roadLimits.top) {
+    document.getElementById("runner").style.top = player.top + "px";
   } else {
-    console.log("not a correct movement");
+    console.log("you can't move anymore");
   }
 }
 
-init();
-window.addEventListener("keydown", onKeyDown);
-
-*********/
-
-/*
-ArrowUp = 38
-*/
+function movePlayerDown() {
+  if (player.top < roadLimits.bottom) {
+    document.getElementById("runner").style.top = player.top + "px";
+  } else {
+    console.log("you can't move anymore");
+  }
+}
