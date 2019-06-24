@@ -4,6 +4,9 @@
 } */
 
 #sky {
+  display: flex;
+  flex-direction: column;
+
   height: 100vh;
   width: auto;
   background-image: url("../img/sun.png"), url("../img/sky@4x.png");
@@ -17,13 +20,16 @@
 }
 
 #skySpace {
-  height: 20vh;
+  height: 30vh;
   width: auto;
+  flex-grow: 1;
 }
 
 #city {
   height: 50vh;
   width: auto;
+
+  flex-grow: 3;
 
   display: flex;
   flex-direction: column;
@@ -37,6 +43,8 @@
 #citySpace {
   height: 70vh;
   width: auto;
+
+  flex-grow: 1;
 }
 
 #runnerSpace {
@@ -61,6 +69,8 @@
   height: 30vh;
   width: auto;
 
+  flex-grow: 1;
+
   background-image: url("../img/road@4x.png");
   background-position: -120px 0px;
   background-repeat: repeat-x;
@@ -68,8 +78,9 @@
 }
 
 #bottomContainer {
-  height: 30vh;
+  height: 20vh;
   width: auto;
+  flex-grow: 1;
 
   background-image: url("../img/water@4x.png");
   background-position: -120px 0px;
