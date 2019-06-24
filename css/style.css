@@ -9,20 +9,19 @@
 
   height: 100vh;
   width: auto;
-  background-image: url("../img/sun.png"), url("../img/sky@4x.png");
+  background-image: url("../img/sun.png"), url("../img/skyUpdate.png");
   background-position: -120% 70px, 0px 0px;
 
   background-repeat: no-repeat, repeat;
   animation: animate-background linear 150s infinite;
-  border: none;
-  display: flex;
-  flex-direction: column;
+  /* border: none; */
 }
 
 #skySpace {
   height: 30vh;
   width: auto;
   flex-grow: 1;
+  flex-shrink: 2;
 }
 
 #city {
@@ -30,6 +29,7 @@
   width: auto;
 
   flex-grow: 3;
+  flex-shrink: 3;
 
   display: flex;
   flex-direction: column;
@@ -81,8 +81,9 @@
   height: 20vh;
   width: auto;
   flex-grow: 1;
+  flex-shrink: 1;
 
-  background-image: url("../img/water@4x.png");
+  background-image: url("../img/waterUpdate.png");
   background-position: -120px 0px;
   background-repeat: repeat-x;
   animation: animate-river linear 45s infinite;
