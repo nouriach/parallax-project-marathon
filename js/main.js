@@ -64,9 +64,22 @@ function movePlayerDown() {
   }
 }
 
-function update() {
-  updatePlayer();
-  window.requestAnimationFrame(update);
+/* 
+a game loop could be used to bring in additional elements every
+so often.
+
+*/
+
+function gameLoop() {
+  setTimeout(gameLoop, 1000);
+  console.log("gameloop running");
 }
 
-window.requestAnimationFrame(update);
+gameLoop();
+
+// function update() {
+//   updatePlayer();
+//   window.requestAnimationFrame(update);
+// }
+
+// window.requestAnimationFrame(update);
