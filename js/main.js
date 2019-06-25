@@ -12,6 +12,35 @@ let roadLimits = {
   right: 2470
 };
 
+/* 
+can we create obstacles and store them within this array? 
+*/
+
+let obstacles = [
+  { top: 1090, left: 300 },
+  { top: 1090, left: 300 },
+  { top: 1090, left: 300 }
+];
+
+function makeObstacles() {
+  document.getElementsByClassName("obstacles").innerhtml = "";
+
+  for (let obstacle = 0; obstacle < obstacles.length; obstacle++) {
+    console.log(obstacles[obstacle]);
+
+    let parentDiv = document.getElementsByClassName("obstacles");
+    let div = document.createElement("div");
+    div.className = "obstacle";
+
+    // let text = document.createTextNode(obstacles[obstacle]);
+    // div.appendChild(text);
+
+    parentDiv[0].appendChild(div);
+  }
+}
+
+// document.getElementsByClassName("obstacles").innerhtml += `<div class = 'obstacle' style = "left: ${obstacles[obstacle].left}px"; "top:${obstacles[obstacle].top}px"></div>`;
+
 document.onkeydown = function(e) {
   console.log(e.code);
   if (e.code === "ArrowUp") {
@@ -71,11 +100,13 @@ so often.
 */
 
 function gameLoop() {
-  setTimeout(gameLoop, 1000);
+  setTimeout(gameLoop, 10000);
+  makeObstacles();
   console.log("gameloop running");
+  // below will create an obstacle to appear at a certain point in the game.
 }
 
-gameLoop();
+// gameLoop();
 
 // function update() {
 //   updatePlayer();

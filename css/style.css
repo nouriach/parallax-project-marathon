@@ -1,9 +1,9 @@
 /* CANVAS */
 
-.myCanvas {
+/* .myCanvas {
   height: 100vh;
   width: auto;
-}
+} */
 
 /* FIRST DIV  */
 
@@ -78,7 +78,7 @@
   animation: animate-city linear 40s infinite;
 }
 
-/* ROAD DIV */
+/* ROAD CONTAINER */
 
 #runnerSpace {
   height: 20vh;
@@ -97,6 +97,20 @@
 
   transform: translate(-50%, -50%);
   animation: animate-runner 1s steps(8) infinite;
+}
+
+.obstacles {
+  height: 20px;
+  width: 20px;
+}
+
+.obstacle {
+  height: 5vh;
+  width: calc(336px / 8);
+
+  background-image: url("../img/manRunning.png");
+
+  transform: translate(-50%, -50%);
 }
 
 /* ANIMATION */
