@@ -5,6 +5,11 @@ let player = {
   left: 0
 };
 
+/** 
+ The below code limits the space where the runner can move. Therefore, it cannot
+ leave the road.
+**/
+
 let roadLimits = {
   top: 1020,
   bottom: 1150,
@@ -26,8 +31,6 @@ let obstacles = [
 ];
 
 function makeObstacles() {
-  document.getElementsByClassName("obstacles").innerhtml = "";
-
   for (let obstacle = 0; obstacle < obstacles.length; obstacle++) {
     console.log(obstacles[obstacle].top);
     console.log(obstacles[obstacle].left);
@@ -57,8 +60,10 @@ document.onkeydown = function(e) {
     console.log("LEFT");
     player.left = player.left - 10;
     movePlayerForward();
+    collisionDetection();
   } else if (e.code === "ArrowRight") {
     console.log("RIGHT");
+    collisionDetection();
     player.left = player.left + 10;
     console.log(player.top);
     movePlayerForward();
@@ -73,12 +78,12 @@ document.onkeydown = function(e) {
 
 function movePlayerForward() {
   if (player.left < roadLimits.left) {
-    console.log(player.left);
+    // console.log(player.left + "px");
   } else if (player.left > roadLimits.right) {
-    console.log(player.left);
+    // console.log(player.left + "px");
   } else {
     document.getElementById("runner").style.left = player.left + "px";
-    console.log("move");
+    // console.log(player.left + "px");
   }
 }
 
@@ -109,13 +114,18 @@ function movePlayerDown() {
      
 and then if they match then you can splice the obstacle from the array.
 
--- CURRENT ISSUE --
+*/
 
-It is difficult to add the empty div with a specific top/left. At the moment it only
-works through manipulating the css.
-
-*******/
-function collisionDetection() {}
+function collisionDetection() {
+  console.log(`collission detection: ${player.left} + "px"`);
+  console.log(`collission detection: ${obstacles[0].left} + "px"`);
+  if (player.left + "px" === obstacles[0].left + "px") {
+    alert("COLLISSION");
+    // alert(`${obstacles}`);
+    obstacles = obstacles.slice(0);
+  } else {
+  }
+}
 
 /* 
 a game loop could be used to bring in additional elements every
@@ -124,13 +134,14 @@ so often.
 */
 
 function gameLoop() {
-  setTimeout(gameLoop, 80000);
+  setTimeout(gameLoop, 50000);
   makeObstacles();
+  collisionDetection();
   console.log("gameloop running");
   // below will create an obstacle to appear at a certain point in the game.
 }
 
-gameLoop();
+// gameLoop();
 
 // function update() {
 //   updatePlayer();
