@@ -104,13 +104,13 @@
   width: 20px;
 }
 
-.obstacle {
+.runnerFast {
   height: 5vh;
   width: calc(336px / 8);
-
   background-image: url("../img/manRunning.png");
 
   transform: translate(-50%, -50%);
+  animation: animate-fastRunner 0.5s steps(8) infinite;
 }
 
 /* ANIMATION */
@@ -144,6 +144,15 @@
 }
 
 @keyframes animate-runner {
+  from {
+    background-position: 2px;
+  }
+  to {
+    background-position: -336px;
+  }
+}
+
+@keyframes animate-fastRunner {
   from {
     background-position: 2px;
   }

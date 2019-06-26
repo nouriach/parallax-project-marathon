@@ -17,23 +17,28 @@ can we create obstacles and store them within this array?
 */
 
 let obstacles = [
-  { top: 1090, left: 300 },
-  { top: 1090, left: 300 },
-  { top: 1090, left: 300 }
+  { top: -30, left: 950 },
+  { top: -50, left: 840 },
+  { top: -50, left: 1400 },
+  { top: -35, left: 800 },
+  { top: -85, left: 1000 },
+  { top: -110, left: 1800 }
 ];
 
 function makeObstacles() {
   document.getElementsByClassName("obstacles").innerhtml = "";
 
   for (let obstacle = 0; obstacle < obstacles.length; obstacle++) {
-    console.log(obstacles[obstacle]);
+    console.log(obstacles[obstacle].top);
+    console.log(obstacles[obstacle].left);
 
     let parentDiv = document.getElementsByClassName("obstacles");
-    let div = document.createElement("div");
-    div.className = "obstacle";
 
-    // let text = document.createTextNode(obstacles[obstacle]);
-    // div.appendChild(text);
+    let div = document.createElement("div");
+    div.className = "runnerFast";
+
+    div.style.marginLeft = obstacles[obstacle].left + "px";
+    div.style.marginTop = obstacles[obstacle].top + "px";
 
     parentDiv[0].appendChild(div);
   }
@@ -93,6 +98,25 @@ function movePlayerDown() {
   }
 }
 
+/***** 
+ The collission detection function will move through both the player array and the 
+ obstacle array and check to see whether, for instance:
+
+ if (
+     (player.top = obstacles[obstacle].top) &&
+     (player.left = obstacles[obstacle].left)
+     )
+     
+and then if they match then you can splice the obstacle from the array.
+
+-- CURRENT ISSUE --
+
+It is difficult to add the empty div with a specific top/left. At the moment it only
+works through manipulating the css.
+
+*******/
+function collisionDetection() {}
+
 /* 
 a game loop could be used to bring in additional elements every
 so often.
@@ -100,13 +124,13 @@ so often.
 */
 
 function gameLoop() {
-  setTimeout(gameLoop, 10000);
+  setTimeout(gameLoop, 80000);
   makeObstacles();
   console.log("gameloop running");
   // below will create an obstacle to appear at a certain point in the game.
 }
 
-// gameLoop();
+gameLoop();
 
 // function update() {
 //   updatePlayer();
