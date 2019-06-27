@@ -23,6 +23,8 @@
 /* SECOND DIV */
 
 #skySpace {
+  display: flex;
+  flex-direction: row;
   height: 30vh;
   width: auto;
   flex-grow: 1;
@@ -57,6 +59,41 @@
   animation: animate-river linear 45s infinite;
 }
 
+/* SKY SPACE CONTAINER */
+
+.thirdPlace {
+  margin: 5vh;
+  height: 13vh;
+  width: 6.7vh;
+  background-image: url("../img/thirdPlace.png");
+
+  position: absolute;
+  animation-name: animate-positonFlag;
+  animation-duration: 2s;
+}
+.secondPlace {
+  margin: 5vh;
+  height: 13vh;
+  width: 7vh;
+  background-image: url("../img/secondPlace.png");
+
+  position: absolute;
+  animation-name: animate-positonFlag;
+  animation-duration: 2s;
+}
+
+.firstPlace {
+  margin: 5vh;
+
+  height: 13vh;
+  width: 6.7vh;
+  background-image: url("../img/firstPlace.png");
+
+  position: absolute;
+  animation-name: animate-positonFlag;
+  animation-duration: 2s;
+}
+
 /* CITY CONTAINER */
 
 #citySpace {
@@ -66,8 +103,8 @@
   flex-grow: 1;
 }
 
-#road {
-  height: 50vh;
+.road {
+  height: 70vh;
   width: auto;
 
   flex-grow: 1;
@@ -86,7 +123,7 @@
 }
 
 #runner {
-  margin-left: 2%;
+  /* margin-left: 2%; */
   /* margin-top: auto; */
   position: absolute;
 
@@ -99,10 +136,10 @@
   animation: animate-runner 1s steps(8) infinite;
 }
 
-.obstacles {
-  height: 20px;
-  width: 20px;
-}
+/* .obstacles {
+  height: 15vh;
+  width: auto;
+} */
 
 .runnerFast {
   height: 5vh;
@@ -158,5 +195,14 @@
   }
   to {
     background-position: -336px;
+  }
+}
+
+@keyframes animate-positonFlag {
+  from {
+    transform: translateX(400px);
+  }
+  to {
+    transform: translateX(800px);
   }
 }
