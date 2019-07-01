@@ -1,9 +1,12 @@
-/* CANVAS */
+* {
+  margin: 0px;
+}
 
-/* .myCanvas {
-  height: 100vh;
-  width: auto;
-} */
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
 
 /* FIRST DIV  */
 
@@ -12,9 +15,12 @@
   flex-direction: column;
 
   height: 100vh;
-  width: auto;
+  max-height: 1340;
+  width: 100%;
+  max-width: 2560px;
+
   background-image: url("../img/sun.png"), url("../img/skyUpdate.png");
-  background-position: -120% 70px, 0px 0px;
+  background-position: -120% 10vh, 0vh 0vh;
 
   background-repeat: no-repeat, repeat;
   animation: animate-background linear 150s infinite;
@@ -42,7 +48,6 @@
   flex-direction: column;
 
   background-image: url("../img/buildings@4x.png");
-  background-position: -120px 0px;
   background-repeat: repeat-x;
   animation: animate-city linear 130s infinite;
 }
@@ -54,9 +59,8 @@
   flex-shrink: 1;
 
   background-image: url("../img/waterUpdate.png");
-  background-position: -120px 0px;
   background-repeat: repeat-x;
-  animation: animate-river linear 45s infinite;
+  animation: animate-river ease-in-out 45s infinite;
 }
 
 /* SKY SPACE CONTAINER */
@@ -68,6 +72,7 @@
   background-image: url("../img/thirdPlace.png");
 
   position: absolute;
+  animation-fill-mode: forwards;
   animation-name: animate-positonFlag;
   animation-duration: 2s;
 }
@@ -78,6 +83,8 @@
   background-image: url("../img/secondPlace.png");
 
   position: absolute;
+  animation-fill-mode: forwards;
+
   animation-name: animate-positonFlag;
   animation-duration: 2s;
 }
@@ -90,6 +97,8 @@
   background-image: url("../img/firstPlace.png");
 
   position: absolute;
+  animation-fill-mode: forwards;
+
   animation-name: animate-positonFlag;
   animation-duration: 2s;
 }
@@ -110,7 +119,6 @@
   flex-grow: 1;
 
   background-image: url("../img/road@4x.png");
-  background-position: -120px 0px;
   background-repeat: repeat-x;
   animation: animate-city linear 40s infinite;
 }
@@ -148,6 +156,7 @@
 
   transform: translate(-50%, -50%);
   animation: animate-fastRunner 0.5s steps(8) infinite;
+  /* animation-name: fast-runner-move 3s linear infinite; */
 }
 
 /* ANIMATION */
@@ -200,9 +209,10 @@
 
 @keyframes animate-positonFlag {
   from {
-    transform: translateX(400px);
+    /* so it starts off screen */
+    transform: translateX(-100px);
   }
   to {
-    transform: translateX(800px);
+    transform: translateX(1200px);
   }
 }

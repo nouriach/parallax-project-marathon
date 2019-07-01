@@ -1,5 +1,13 @@
 // This speaks to the starting position of the runner.
 
+var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+var h = Math.max(
+  document.documentElement.clientHeight,
+  window.innerHeight || 0
+);
+console.log(`window height: ${h}`);
+console.log(`window width: ${w}`);
+
 let player = {
   top: 1090,
   left: 0
@@ -13,10 +21,11 @@ let player = {
 let roadLimits = {
   top: 950,
   bottom: 1180,
-  left: -10,
-  right: 2470
+  left: `${w}` / 100,
+  right: `${w}`
 };
 
+console.log(`${roadLimits.left}`);
 /* 
 can we create obstacles and store them within this array? 
 */
