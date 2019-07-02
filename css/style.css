@@ -4,8 +4,8 @@
 
 body,
 html {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
 }
 
 /* FIRST DIV  */
@@ -14,13 +14,13 @@ html {
   display: flex;
   flex-direction: column;
 
-  height: 100vh;
-  max-height: 1340;
+  height: 100%;
+  max-height: 100vh;
   width: 100%;
-  max-width: 2560px;
+  max-width: 100vw;
 
   background-image: url("../img/sun.png"), url("../img/skyUpdate.png");
-  background-position: -120% 10vh, 0vh 0vh;
+  background-position: -120% 5vh, 0vh 0vh;
 
   background-repeat: no-repeat, repeat;
   animation: animate-background linear 150s infinite;
@@ -32,14 +32,14 @@ html {
   display: flex;
   flex-direction: row;
   height: 30vh;
-  width: auto;
+  width: 100vw;
   flex-grow: 1;
   flex-shrink: 2;
 }
 
 #city {
   height: 60vh;
-  width: auto;
+  width: 100vw;
 
   flex-grow: 3;
   flex-shrink: 3;
@@ -54,7 +54,7 @@ html {
 
 #bottomContainer {
   height: 10vh;
-  width: auto;
+  width: 100vw;
   flex-grow: 1;
   flex-shrink: 1;
 
@@ -66,9 +66,9 @@ html {
 /* SKY SPACE CONTAINER */
 
 .thirdPlace {
-  margin: 5vh;
-  height: 13vh;
-  width: 6.7vh;
+  margin: 5%;
+  height: 13%;
+  width: 6.7%;
   background-image: url("../img/thirdPlace.png");
 
   position: absolute;
@@ -77,9 +77,9 @@ html {
   animation-duration: 2s;
 }
 .secondPlace {
-  margin: 5vh;
-  height: 13vh;
-  width: 7vh;
+  margin: 5%;
+  height: 13%;
+  width: 6.7%;
   background-image: url("../img/secondPlace.png");
 
   position: absolute;
@@ -90,10 +90,10 @@ html {
 }
 
 .firstPlace {
-  margin: 5vh;
+  margin: 5%;
+  height: 13%;
+  width: 6.7%;
 
-  height: 13vh;
-  width: 6.7vh;
   background-image: url("../img/firstPlace.png");
 
   position: absolute;
@@ -106,15 +106,15 @@ html {
 /* CITY CONTAINER */
 
 #citySpace {
-  height: 50vh;
-  width: auto;
+  height: 20vh;
+  width: 100vw;
 
   flex-grow: 1;
 }
 
 .road {
-  height: 70vh;
-  width: auto;
+  height: 30vh;
+  width: 100vw;
 
   flex-grow: 1;
 
@@ -125,24 +125,22 @@ html {
 
 /* ROAD CONTAINER */
 
-#runnerSpace {
-  height: 20vh;
-  width: auto;
-}
-
+/* #runnerSpace {
+  height: 50vh;
+  width: 100vw;
+} */
+/* 
 #runner {
-  /* margin-left: 2%; */
-  /* margin-top: auto; */
   position: absolute;
 
-  height: 5vh;
+  height: 7vh;
   width: calc(336px / 8);
 
   background-image: url("../img/manRunning.png");
 
   transform: translate(-50%, -50%);
   animation: animate-runner 1s steps(8) infinite;
-}
+} */
 
 /* .obstacles {
   height: 15vh;
@@ -150,7 +148,7 @@ html {
 } */
 
 .runnerFast {
-  height: 5vh;
+  height: 7vh;
   width: calc(336px / 8);
   background-image: url("../img/manRunning.png");
 
@@ -214,5 +212,138 @@ html {
   }
   to {
     transform: translateX(1200px);
+  }
+}
+
+/* MEDIA QUERIES  */
+
+/* all of the below will come into play when the screen is smaller than or equal to the
+below width  */
+
+/* FOR TABLET */
+
+@media screen and (max-width: 768px) {
+  /* MAIN CONTAINER */
+
+  body,
+  html {
+    width: 100vw;
+    height: 100vh;
+  }
+  #sky {
+    width: 100vw;
+    height: 100vh;
+  }
+  /* TOP DIV  */
+
+  #skySpace {
+    width: 100vw;
+    height: 20vh;
+  }
+  #city {
+    width: 100vw;
+    height: 20vh;
+  }
+  #bottomContainer {
+    width: 100vw;
+    height: 0vh;
+  }
+
+  /* #skySpace DIV */
+
+  .firstPlace {
+    width: 0vh;
+    height: 0vh;
+  }
+
+  .secondPlace {
+    width: 0vh;
+    height: 0vh;
+  }
+
+  .thirdPlace {
+    width: 0vh;
+    height: 0vh;
+  }
+
+  /* city DIV */
+
+  #citySpace {
+    width: 0vh;
+    height: 0vh;
+  }
+
+  #road {
+    width: 100vh;
+    height: 10vh;
+  }
+
+  /* road DIV */
+
+  /* #runnerSpace {
+    width: 50%;
+    height: 50%;
+  } */
+  /* #runner {
+    width: 10%;
+    height: 10%;
+  } */
+}
+/**************************/
+
+/* FOR MOBILE */
+
+@media screen and (max-width: 414px) {
+  body,
+  html {
+    width: 100vw;
+    height: 100vh;
+  }
+  #sky {
+    width: 100vw;
+    height: 100vh;
+  }
+  /* TOP DIV  */
+
+  #skySpace {
+    width: 100vw;
+    height: 20vh;
+  }
+  #city {
+    width: 100vw;
+    height: 60vh;
+  }
+  #bottomContainer {
+    width: 100vw;
+    height: 5vh;
+  }
+
+  /* #skySpace DIV */
+
+  .firstPlace {
+    width: 0vh;
+    height: 0vh;
+  }
+
+  .secondPlace {
+    width: 0vh;
+    height: 0vh;
+  }
+
+  .thirdPlace {
+    width: 0vh;
+    height: 0vh;
+  }
+
+  /* city DIV */
+
+  #citySpace {
+    width: 0vh;
+    height: 0vh;
+  }
+
+  #road {
+    width: 100vh;
+    height: 30vh;
   }
 }

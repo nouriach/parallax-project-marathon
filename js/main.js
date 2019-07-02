@@ -9,7 +9,7 @@ console.log(`window height: ${h}`);
 console.log(`window width: ${w}`);
 
 let player = {
-  top: 1090,
+  top: 80,
   left: 0
 };
 
@@ -19,21 +19,20 @@ let player = {
 **/
 
 let roadLimits = {
-  top: 950,
-  bottom: 1180,
-  left: `${w}` / 100,
-  right: `${w}`
+  top: 70,
+  bottom: 86,
+  left: 0,
+  right: 99.9
 };
 
-console.log(`${roadLimits.left}`);
 /* 
 can we create obstacles and store them within this array? 
 */
 
 let obstacles = [
-  { top: -10, left: 400 },
-  { top: -5, left: 800 },
-  { top: 0, left: 1100 }
+  { top: 0, left: 20 },
+  { top: 1, left: 40 },
+  { top: 2, left: 90 }
 ];
 
 let playerPosition = 4;
@@ -48,34 +47,34 @@ function makeObstacles() {
     let div = document.createElement("div");
     div.className = "runnerFast";
 
-    div.style.marginLeft = obstacles[obstacle].left + "px";
-    div.style.marginTop = obstacles[obstacle].top + "px";
+    div.style.marginLeft = obstacles[obstacle].left + "vw";
+    div.style.marginTop = obstacles[obstacle].top + "vh";
 
     parentDiv[0].appendChild(div);
   }
 }
 
 document.onkeydown = function(e) {
-  //   console.log(e.code);
   if (e.code === "ArrowUp") {
-    // console.log("UP");
-    player.top = player.top - 10;
-    console.log(player.top);
+    player.top = player.top - 0.5;
+    console.log(`On arrow up: ${player.top}`);
     movePlayerUp();
   } else if (e.code === "ArrowLeft") {
-    // console.log("LEFT");
-    player.left = player.left - 10;
+    player.left = player.left - 5;
+    console.log(`On arrow left: ${player.left}`);
+
     movePlayerForward();
     collisionDetection();
   } else if (e.code === "ArrowRight") {
-    // console.log("RIGHT");
-    collisionDetection();
-    player.left = player.left + 10;
-    // console.log(player.top);
+    player.left = player.left + 5;
+    console.log(`On arrow right: ${player.left}`);
+
     movePlayerForward();
+    collisionDetection();
   } else if (e.code === "ArrowDown") {
-    // console.log("DOWN");
-    player.top = player.top + 10;
+    player.top = player.top + 0.5;
+    console.log(`On arrow down: ${player.top}`);
+
     movePlayerDown();
   } else {
     // console.log("no other moves available.");
@@ -88,14 +87,14 @@ function movePlayerForward() {
   } else if (player.left > roadLimits.right) {
     // console.log(player.left + "px");
   } else {
-    document.getElementById("runner").style.left = player.left + "px";
+    document.getElementById("runner").style.left = player.left + "vw";
     // console.log(player.left + "px");
   }
 }
 
 function movePlayerUp() {
   if (player.top > roadLimits.top) {
-    document.getElementById("runner").style.top = player.top + "px";
+    document.getElementById("runner").style.top = player.top + "vh";
   } else {
     // console.log("you can't move anymore");
   }
@@ -103,7 +102,7 @@ function movePlayerUp() {
 
 function movePlayerDown() {
   if (player.top < roadLimits.bottom) {
-    document.getElementById("runner").style.top = player.top + "px";
+    document.getElementById("runner").style.top = player.top + "vh";
   } else {
     // console.log("you can't move anymore");
   }
@@ -148,17 +147,30 @@ and then if they match then you can splice the obstacle from the array.
 */
 
 function collisionDetection() {
-  if (player.left == obstacles[0].left) {
+  if (player.left === obstacles[0].left) {
     playerPosition = playerPosition - 1;
-    console.log(`${playerPosition}`);
+    console.log(
+      `collision: player position, ${player.left} and the runner position, ${
+        obstacles[0].left
+      }`
+    );
     insertFlag();
-  } else if (player.left == obstacles[1].left) {
+  } else if (player.left === obstacles[1].left) {
     playerPosition = playerPosition - 1;
-    console.log(`${playerPosition}`);
+    console.log(
+      `collision: player position, ${player.left} and the runner position, ${
+        obstacles[1].left
+      }`
+    );
     insertFlag();
-  } else if (player.left == obstacles[2].left) {
+  } else if (player.left === obstacles[2].left) {
+    console.log(
+      `collision: player position, ${player.left} and the runner position, ${
+        obstacles[2].left
+      }`
+    );
+
     playerPosition = playerPosition - 1;
-    console.log(`${playerPosition}`);
     insertFlag();
   }
 }
@@ -173,13 +185,12 @@ function gameLoop() {
 this is important because it will only run the makeObstalces code after 9 seconds.
 */
   setTimeout(makeObstacles, 9000);
-  //   console.log();
   collisionDetection();
   console.log("gameloop running");
   // below will create an obstacle to appear at a certain point in the game.
 }
 
-gameLoop();
+// gameLoop();
 
 // function update() {
 //   updatePlayer();
